@@ -25,14 +25,14 @@ export default function UserInput(){
             <InputGroup 
             labelText1='Initial Investment' 
             labelText2='Annual Investment'
-            input1={{type:'number', required:true, initialValue:initialInestment}} 
-            input2={{type:'number', required:true,  annualIvestment:annualInvestment}}/>
+            input1={{type:'number', required:true, initialValue:initialInestment, onChange:handleChange}} 
+            input2={{type:'number', required:true,  annualIvestment:annualInvestment, onChange:handleChange}}/>
 
             <InputGroup 
             labelText1='Expected Return' 
             labelText2='Duration'
-            input1={{type:'number', required:true}} 
-            input2={{type:'number', required:true}}/>
+            input1={{type:'number', required:true, expectedReturn:expectedReturn, onChange:handleChange}} 
+            input2={{type:'number', required:true, duration:duration, onChange:handleChange}}/>
         </section>
     )
 }
