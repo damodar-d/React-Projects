@@ -1,38 +1,26 @@
 import InputGroup from "./InputGroup";
 
-export default function UserInput(){
 
-    const[userInput, setUserInput]=useState({
-        initialInestment:10000,
-        annualInvestment:1200,
-        expectedReturn:6,
-        duration:10
-    })
+export default function UserInput({handleChange,userInput}){
 
-    function handleChange(inputKey, newValue){
-
-        setUserInput( (prevUserInput) => {
-
-            return{
-                ...prevUserInput,
-                [inputKey]:newValue
-            }
-        } )
-    }
     return(
         <section id="user-input">
             
             <InputGroup 
             labelText1='Initial Investment' 
             labelText2='Annual Investment'
-            input1={{type:'number', required:true, initialValue:initialInestment, onChange:handleChange}} 
-            input2={{type:'number', required:true,  annualIvestment:annualInvestment, onChange:handleChange}}/>
+            value1={userInput.initialInvestment}
+            value2={userInput.annualInvestment}
+            input1={{type:'number', required:true, handleChange:handleChange}} 
+            input2={{type:'number', required:true, handleChange:handleChange}}/>
 
             <InputGroup 
             labelText1='Expected Return' 
             labelText2='Duration'
-            input1={{type:'number', required:true, expectedReturn:expectedReturn, onChange:handleChange}} 
-            input2={{type:'number', required:true, duration:duration, onChange:handleChange}}/>
+            value1={userInput.expectedReturn}
+            value2={userInput.duration}
+            input1={{type:'number', required:true,  handleChange:handleChange}} 
+            input2={{type:'number', required:true, handleChange:handleChange}}/>
         </section>
     )
 }
